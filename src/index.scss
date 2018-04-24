@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css?family=Bungee");
+
+body {
+  margin: 0;
+  background: black;
+  color: white;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-100vw);
+  }
+  25% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100vh);
+  }
+}
+
+@keyframes slide-out {
+  to {
+    background: transparent;
+  }
+}
+
+#title {
+  position: fixed;
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+
+  background: black;
+  
+  font-family: Bungee, Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 4rem;
+  font-weight: bolder;
+  line-height: 1em;
+  
+  grid-template-columns: 1fr max-content 1fr;
+  grid-template-rows: 1fr repeat(5, auto) 1fr;
+  pointer-events: none;
+
+  animation: slide-out 2s 4s both;
+  
+  span {
+    grid-column: 2;
+    animation: slide-in 6s both;
+
+    &::first-letter {
+      color: red;
+    }
+
+    @for $i from 1 to 6 {
+      &:nth-child(#{$i}) {
+        grid-row: #{$i + 1};
+        animation-delay: #{($i - 1) / 4}s;
+      }
+    }
+  }
+}
+
