@@ -16,6 +16,10 @@ body {
   color: white;
 }
 
+a {
+  color: inherit;
+}
+
 @keyframes slide-in {
   from {
     transform: translateX(-150vw);
@@ -72,9 +76,8 @@ body {
 
 main {
   display: grid;
-  margin: 1rem auto;
   grid-template-columns: 1fr 1fr minmax(min-content, 50ch) 1fr 1fr;
-  grid-gap: 3rem 0;
+  grid-gap: 2rem 0;
 
   & > h1 {
     grid-column: -2 / 2;
@@ -82,8 +85,8 @@ main {
     @extend %title;
     text-align: center;
 
-    margin: 0;
-    border-bottom: 2px solid white;
+    margin: 1em 0 -0.5em 0;
+    border-bottom: 4px solid white;
   }
 
   article {
