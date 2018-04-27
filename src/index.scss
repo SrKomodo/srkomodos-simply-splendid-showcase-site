@@ -1,6 +1,14 @@
 @import url("https://fonts.googleapis.com/css?family=Bungee|Fira+Sans");
 
-$titleFont: Bungee, Verdana, Geneva, Tahoma, sans-serif;
+%title {
+  font-family: Bungee, Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bolder; 
+  line-height: 1em;
+
+  &::first-letter {
+    color: red;
+  }
+}
 
 body {
   margin: 0;
@@ -39,24 +47,18 @@ body {
 
   background: black;
   
-  font-family: $titleFont;
-  font-size: 4rem;
-  font-weight: bolder;
-  line-height: 1em;
-  
   grid-template-columns: 1fr max-content 1fr;
   grid-template-rows: 1fr repeat(5, auto) 1fr;
   pointer-events: none;
-
+  
   animation: slide-out 2s 4s both;
   
   span {
     grid-column: 2;
     animation: slide-in 6s both;
-
-    &::first-letter {
-      color: red;
-    }
+    
+    @extend %title;
+    font-size: 4rem;
 
     @for $i from 1 to 6 {
       &:nth-child(#{$i}) {
@@ -81,13 +83,8 @@ main {
     
     h1 {
       margin: 0;
-      font-family: $titleFont;
+      @extend %title;
       text-align: center;
-      line-height: 1em;
-
-      &::first-letter {
-        color: red;
-      }
     }
 
     p {
