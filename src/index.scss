@@ -18,7 +18,7 @@ body {
 
 @keyframes slide-in {
   from {
-    transform: translateX(-100vw);
+    transform: translateX(-150vw);
   }
   25% {
     transform: translateX(0);
@@ -27,7 +27,7 @@ body {
     transform: translateY(0);
   }
   to {
-    transform: translateY(-100vh);
+    transform: translateY(-150vh);
   }
 }
 
@@ -55,6 +55,7 @@ body {
 
   span {
     grid-column: 2;
+    transform-origin: bottom right;
     animation: slide-in 6s both;
 
     @extend %title;
