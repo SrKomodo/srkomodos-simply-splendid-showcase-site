@@ -11,7 +11,7 @@ deploy:
   skip-cleanup: true
   github-token: $GITHUB_TOKEN
   local-dir: dist
-  repo: srkomodo.github.io
+  repo: srkomodo/srkomodo.github.io
   target-branch: master
   on:
     branch: master
