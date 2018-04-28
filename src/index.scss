@@ -17,6 +17,12 @@ body {
   background: black;
   font-family: $defaultFont;
   color: white;
+
+  &.konami {
+    * {
+      font-family: cursive !important;
+    }
+  }
 }
 
 a {
