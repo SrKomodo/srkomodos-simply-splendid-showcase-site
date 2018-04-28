@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Bungee|Fira+Sans");
 
+$emphasisColor: mix(red, white, 75%);
+$defaultFont: "Fira Sans", Verdana, Geneva, Tahoma, sans-serif;
 %title {
   font-family: Bungee, Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bolder;
@@ -13,11 +15,12 @@
 body {
   margin: 0;
   background: black;
+  font-family: $defaultFont;
   color: white;
 }
 
 a {
-  color: inherit;
+  color: $emphasisColor;
 }
 
 @keyframes slide-in {
@@ -99,14 +102,18 @@ main {
       margin: 0;
       @extend %title;
       text-align: center;
+
+      a {
+        font-family: $defaultFont;
+        font-size: 0.5em;
+      }
     }
 
     p {
       margin-bottom: 0;
-      font-family: "Fira Sans", Verdana, Geneva, Tahoma, sans-serif;
 
       em {
-        color: red;
+        color: $emphasisColor;
       }
     }
 
