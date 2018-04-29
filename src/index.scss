@@ -1,7 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Bungee|Fira+Sans");
+@import "./konami";
 
 $emphasisColor: mix(red, white, 75%);
 $defaultFont: "Fira Sans", Verdana, Geneva, Tahoma, sans-serif;
+
 %title {
   font-family: Bungee, Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bolder;
@@ -17,12 +19,6 @@ body {
   background: black;
   font-family: $defaultFont;
   color: white;
-
-  &.konami {
-    * {
-      font-family: cursive !important;
-    }
-  }
 }
 
 a {
@@ -99,9 +95,6 @@ main {
   }
 
   article {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     padding: 10px;
 
     h1 {

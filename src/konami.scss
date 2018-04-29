@@ -1,0 +1,25 @@
+@keyframes rainbow {
+  to {
+    filter: hue-rotate(1turn);
+  }
+}
+
+body.konami {
+  color: yellow;
+  font-family: cursive !important;
+
+  background: black;
+  main {
+    background: url(assets/netscape.gif) no-repeat space,
+      url(assets/ie.gif) no-repeat space right;
+
+    h1 {
+      border-color: transparent;
+      background: url(assets/separator.gif) bottom round no-repeat;
+    }
+  }
+
+  ::first-letter {
+    color: blue;
+  }
+}
