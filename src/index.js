@@ -14,7 +14,7 @@ const code = [
 ];
 let konami = 0;
 
-document.addEventListener("keypress", e => {
+document.addEventListener("keydown", e => {
   if (e.key === code[konami]) konami++;
   else konami = 0;
   if (konami === code.length) {
