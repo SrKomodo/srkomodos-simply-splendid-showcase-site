@@ -1,13 +1,18 @@
-@import url("https://fonts.googleapis.com/css?family=Bungee|Fira+Sans");
+@import url("https://fonts.googleapis.com/css?family=Roboto");
 @import "./konami";
 
+@font-face {
+  font-family: "Kremlin";
+  src: url(assets/kremlin.ttf);
+}
+
 $emphasisColor: mix(red, white, 75%);
-$defaultFont: "Fira Sans", Verdana, Geneva, Tahoma, sans-serif;
+$defaultFont: "Roboto", Verdana, Geneva, Tahoma, sans-serif;
 
 %title {
-  font-family: Bungee, Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "Kremlin", Verdana, Geneva, Tahoma, sans-serif;
+  text-transform: uppercase;
   font-weight: bolder;
-  line-height: 1em;
 
   &::first-letter {
     color: red;
