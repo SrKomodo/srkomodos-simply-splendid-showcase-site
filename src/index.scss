@@ -5,11 +5,56 @@
   src: url(assets/redOctober.ttf);
 }
 
+@font-face {
+  font-family: "The American";
+  src: url(assets/theAmerican.ttf);
+}
+
 $gray: #ffedc2;
 $red: #f90016;
 $font: "Bitter", Verdana, Geneva, Tahoma, sans-serif;
 
 body {
+  &.konami {
+    $blue: #3c3b6e;
+    $red: #b22234;
+
+    background: url(assets/unclesam.jpg) center top;
+
+    &::after {
+      display: none;
+    }
+
+    header,
+    h2,
+    h3 {
+      font-family: "The American";
+      background: $blue;
+      color: white;
+    }
+
+    article {
+      background: repeating-linear-gradient(
+        $red,
+        $red 1.1em,
+        white 1.1em,
+        white 2.2em
+      );
+
+      h3 a {
+        color: white;
+      }
+
+      p,
+      p em,
+      p a {
+        color: white !important;
+        text-shadow: 1px 0 1px black, -1px 0 1px black, 0 1px 1px black,
+          0 -1px 1px black;
+      }
+    }
+  }
+
   font-family: $font;
   background: $gray;
   overflow-x: hidden;
