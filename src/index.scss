@@ -122,3 +122,13 @@ main {
     }
   }
 }
+
+@media (max-width: 80ch) {
+  header {
+    transform: none;
+  }
+
+  article {
+    transform: none !important;
+  }
+}
