@@ -36,6 +36,6 @@ document.addEventListener("keydown", e => {
   else konami = 0;
   if (konami === code.length) {
     konami = 0;
-    document.body.className = "konami";
+    document.body.classList.toggle("konami");
   }
 });
