@@ -1,81 +1,119 @@
-@import url("https://fonts.googleapis.com/css?family=Bungee|Fira+Sans");
-@import "./konami";
+@import url("https://fonts.googleapis.com/css?family=Bitter");
 
-$emphasisColor: mix(red, white, 75%);
-$defaultFont: "Fira Sans", Verdana, Geneva, Tahoma, sans-serif;
-
-%title {
-  font-family: Bungee, Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: bolder;
-  line-height: 1em;
-
-  &::first-letter {
-    color: red;
-  }
+@font-face {
+  font-family: "Red October";
+  src: url(assets/redOctober.ttf);
 }
+
+@font-face {
+  font-family: "The American";
+  src: url(assets/theAmerican.ttf);
+}
+
+$gray: #ffedc2;
+$red: #f90016;
+$font: "Bitter", Verdana, Geneva, Tahoma, sans-serif;
 
 body {
-  margin: 0;
-  background: black;
-  font-family: $defaultFont;
-  color: white;
-}
+  &.konami {
+    $blue: #3c3b6e;
+    $red: #b22234;
 
-a {
-  color: $emphasisColor;
-}
+    background: url(assets/unclesam.jpg) center top;
 
-@keyframes slide-in {
-  from {
-    transform: translateX(-150vw);
-  }
-  25% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-150vh);
-  }
-}
+    &::after {
+      display: none;
+    }
 
-@keyframes slide-out {
-  to {
-    background: transparent;
-  }
-}
+    header,
+    h2,
+    h3 {
+      font-family: "The American";
+      background: $blue;
+      color: white;
+    }
 
-#title {
-  position: fixed;
-  display: grid;
-  width: 100vw;
-  height: 100vh;
-  left: 0;
-  top: 0;
+    article {
+      background: repeating-linear-gradient(
+        $red,
+        $red 1.1em,
+        white 1.1em,
+        white 2.2em
+      );
 
-  background: black;
+      h3 a {
+        color: white;
+      }
 
-  grid-template-columns: 1fr max-content 1fr;
-  grid-template-rows: 1fr repeat(5, auto) 1fr;
-  pointer-events: none;
-
-  animation: slide-out 2s 4s both;
-
-  span {
-    grid-column: 2;
-    transform-origin: bottom right;
-    animation: slide-in 6s both;
-
-    @extend %title;
-    font-size: 4rem;
-
-    @for $i from 1 to 6 {
-      &:nth-child(#{$i}) {
-        grid-row: #{$i + 1};
-        animation-delay: #{($i - 1) / 4}s;
+      p,
+      p em,
+      p a {
+        color: white !important;
+        text-shadow: 1px 0 1px black, -1px 0 1px black, 0 1px 1px black,
+          0 -1px 1px black;
       }
     }
+  }
+
+  font-family: $font;
+  background: $gray;
+  overflow-x: hidden;
+  margin: 0;
+
+  @supports (mix-blend-mode: darken) {
+    &::after {
+      content: "";
+      top: 0;
+      position: fixed;
+      mix-blend-mode: darken;
+      background: url(assets/paper.jpg);
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+  }
+}
+
+%title {
+  font-family: "Red October", Verdana, Geneva, Tahoma, sans-serif;
+  text-transform: uppercase;
+  font-weight: bolder;
+
+  background: $red;
+  color: $gray;
+  border-top: 0.2em solid black;
+  border-bottom: 0.2em solid black;
+}
+
+h2,
+h3 {
+  @extend %title;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(100vw);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+header {
+  @extend %title;
+  font-size: 2rem;
+  margin: 1.5em 0;
+  margin-left: -1ch;
+  width: calc(100vw + 2ch);
+  transform: rotate(1deg);
+
+  h1 {
+    display: inline-block;
+    white-space: nowrap;
+    margin: 0;
+    text-align: center;
+    animation: slide 20s linear infinite;
   }
 }
 
@@ -84,44 +122,58 @@ main {
   grid-template-columns: 1fr 1fr minmax(min-content, 50ch) 1fr 1fr;
   grid-gap: 2rem 0;
 
-  & > h1 {
-    grid-column: -2 / 2;
-
+  & > h2 {
+    grid-column: 1 / 6;
     @extend %title;
     text-align: center;
-
-    margin: 1em 0 0 0;
-    border-bottom: 4px solid white;
+    margin: 1em 0;
   }
 
   article {
-    padding: 10px;
+    border: 0.2rem solid black;
+    border-top: none;
 
-    h1 {
+    h3 {
       margin: 0;
       @extend %title;
       text-align: center;
 
       a {
-        font-family: $defaultFont;
-        font-size: 0.5em;
+        font-family: $font;
+        font-size: 1rem;
+        color: $gray;
+        text-decoration: none;
       }
     }
 
     p {
-      margin-bottom: 0;
+      margin: 0.5rem;
 
-      em {
-        color: $emphasisColor;
+      em,
+      a {
+        font-weight: bold;
+        color: $red;
       }
     }
 
     &:nth-of-type(odd) {
       grid-column: 2 / 4;
+      transform: rotate(-1deg);
     }
 
     &:nth-of-type(even) {
       grid-column: 3 / 5;
+      transform: rotate(1deg);
     }
+  }
+}
+
+@media (max-width: 80ch) {
+  header {
+    transform: none;
+  }
+
+  article {
+    transform: none !important;
   }
 }
