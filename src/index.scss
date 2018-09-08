@@ -10,20 +10,22 @@
   src: url(assets/theAmerican.ttf);
 }
 
-$gray: #ffedc2;
+$gray: #e8d2a9;
 $red: #f90016;
 $font: "Bitter", Verdana, Geneva, Tahoma, sans-serif;
 
 body {
+  font-family: $font;
+  background: $gray url(./assets/paper.jpg);
+  overflow-x: hidden;
+  margin: 0;
+
   &.konami {
     $blue: #3c3b6e;
     $red: #b22234;
 
-    background: url(assets/unclesam.jpg) center top;
-
-    &::after {
-      display: none;
-    }
+    background: #91908d url(assets/unclesam.jpg) center;
+    background-size: contain;
 
     header,
     h2,
@@ -36,40 +38,23 @@ body {
     article {
       background: repeating-linear-gradient(
         $red,
-        $red 1.1em,
-        white 1.1em,
-        white 2.2em
+        $red 1em,
+        white 1em,
+        white 2em
       );
 
-      h3 a {
+      p, p * {
         color: white;
+        text-shadow:
+          0 0 2px black,
+          0 0 2px black,
+          0 0 2px black,
+          0 0 2px black,
+          0 0 2px black,
+          0 0 2px black,
+          0 0 2px black,
+          0 0 2px black;
       }
-
-      p,
-      p em,
-      p a {
-        color: white !important;
-        text-shadow: 1px 0 1px black, -1px 0 1px black, 0 1px 1px black,
-          0 -1px 1px black;
-      }
-    }
-  }
-
-  font-family: $font;
-  background: $gray;
-  overflow-x: hidden;
-  margin: 0;
-
-  @supports (mix-blend-mode: darken) {
-    &::after {
-      content: "";
-      top: 0;
-      position: fixed;
-      mix-blend-mode: darken;
-      background: url(assets/paper.jpg);
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
     }
   }
 }
@@ -79,7 +64,7 @@ body {
   text-transform: uppercase;
   font-weight: bolder;
 
-  background: $red;
+  background: $red url(./assets/redPaper.jpg);
   color: $gray;
   border-top: 0.2em solid black;
   border-bottom: 0.2em solid black;
