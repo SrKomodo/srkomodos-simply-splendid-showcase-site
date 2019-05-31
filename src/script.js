@@ -1,5 +1,3 @@
-import "./index.scss";
-
 console.log(`
 Hey dude what's up?
 What are you doing here on the browser console?
